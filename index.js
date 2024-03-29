@@ -1,6 +1,6 @@
 // require("./config/database").connect();
 const express = require("express");
-const port= 8000;
+const port = 8000;
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const app = express();
@@ -32,14 +32,14 @@ app.set("views", "./views");
 app.use(
   session({
     name: "placement-cell",
-    secret: "Rituraj Yadav",
+    secret: "Sujoy Peter",
     saveUninitialized: false,
     resave: false,
     cookie: {
       maxAge: 1000 * 60 * 100,
     },
     store: MongoStore.create({
-      mongoUrl:"mongodb://127.0.0.1:27017/placement",
+      mongoUrl: "mongodb+srv://sujoypeter:sujoy123@cluster0.ckdun0j.mongodb.net/",
       autoRemove: "disabled",
     }),
     function(err) {
@@ -63,9 +63,9 @@ app.use(customMware.setFlash);
 // use express router
 app.use("/", require("./routes"));
 
-app.listen(port, function(err){
-  if (err){
-      console.log(`Error in running the server: ${err}`);
+app.listen(port, function (err) {
+  if (err) {
+    console.log(`Error in running the server: ${err}`);
   }
 
   console.log(`Server is running on port: ${port}`);
